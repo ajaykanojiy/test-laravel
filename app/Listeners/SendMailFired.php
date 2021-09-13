@@ -37,7 +37,7 @@ class SendMailFired
             'description' => $event->id->description,
             'created_at' => $event->id->created_at
         ];
-        $user['to']='ajaykantkanojiya@gmail.com';
+        $user['to']='applocumadmin@yopmail.com';
 
         // \Mail::to('ajaykantkanojiy@gmail.com')->send(new \App\Mail\MyTestMail($details));
             // \Mail::to('ajaykantkanojiy@gmail.com')->send(new OrderShipped($details));
