@@ -151,4 +151,16 @@ class CategoryController extends Controller
         return redirect()->route('category.index')        
           ->with('success','category created successfully.');
     }
+
+
+    public function ipdemo(){
+    //    echo 'demo';die;
+          $ip="157.34.114.36";
+           $ip2='1573411436';
+            // print_r (explode(" ",$ip2));
+
+          print_r( explode('.',$ip));
+
+         return view('category.createnew');
+    }
 }

@@ -25,58 +25,28 @@
     @endif
 
 
-    <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data">
     	@csrf
 
 
          <div class="row">
 
-         <!-- <div class="col-xs-12 col-sm-12 col-md-12">
-		        <div class="form-group">
-		            <strong>Category:</strong>
-		           
-                    <select class="form-control" name="category_id">
-                    <option value="">Select</option>
-                        @foreach($categorys as $category)
-                        <option value="{{$category->id}}">{{$category->name}}</option>
-                        @endforeach
-                    <select>
-		        </div>
-		    </div> -->
+          
 		    <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
 		            <strong>Name:</strong>
 		            <input type="text" name="name" class="form-control" placeholder="Name">
 		        </div>
 		    </div>
-		    <div class="col-xs-12 col-sm-12 col-md-12">
-		        <div class="form-group">
-		            <strong>Description:</strong>
-		            <textarea class="form-control" style="height:150px" name="description" placeholder="Description"></textarea>
-		        </div>
-		    </div>
-             
-            <div class="col-xs-12 col-sm-12 col-md-12">
-		        <div class="form-group">
-		            <strong>Price:</strong>
-		            <input type="text" name="price" class="form-control" placeholder="Price">
-		        </div>
-		    </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-		        <div class="form-group">
-		            <strong>Stock:</strong>
-		            <input type="text" name="stock" class="form-control" placeholder="Stock">
-		        </div>
-		    </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
+		   
+           
+            <!-- <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
 		            <strong>Image:</strong>
                     <input type="file" name="image" class="form-control">
                    {!!$errors->first('image', '<span class="text-danger">:message</span>')!!}
 		        </div>
-		    </div>
+		    </div> -->
 
 		    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
 		            <button type="submit" class="btn btn-primary">Submit</button>

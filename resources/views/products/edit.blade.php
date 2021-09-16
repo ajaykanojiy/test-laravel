@@ -33,17 +33,7 @@
 
          <div class="row">
          <div class="col-xs-12 col-sm-12 col-md-12">
-		        <div class="form-group">
-		            <strong>Category:</strong>
-		           <?php //echo $product->category_id;die;  ?>
-                    <select class="form-control" name="category_id">
-                        @foreach($categorys as $category)
-                         <option value="">Select</option>
-                        <option value="{{$category->id}}"<?php if($category->id==$product->category_id){ echo 'selected';} ?>>{{$category->name}}</option>
-                        @endforeach
-                    <select>
-		        </div>
-		    </div>
+		      
 
 		    <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
@@ -57,12 +47,29 @@
 		            <textarea class="form-control" style="height:150px" name="description" placeholder="Description">{{$product->description}}</textarea>
 		        </div>
 		    </div>
+
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+		        <div class="form-group">
+		            <strong>Price:</strong>
+		            <input type="text" name="price" value="{{$product->price}}" class="form-control" placeholder="Price">
+		        </div>
+		    </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+		        <div class="form-group">
+		            <strong>Stock:</strong>
+                    <input type="hidden" name="stock_id" value="{{$product->stock->id}}">
+		            <input type="text" name="stock" class="form-control" value="{{$product->stock->stock}}" placeholder="Stock">
+		        </div>
+		    </div>
            
            <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
 		            <strong>Image:</strong>
                     <input type="file" name="image" class="form-control">
                     <input type="hidden" name="edit_image" value="{{$product->Image}}">
+                    <img src="{{ productImagePath($product->Image) }}" height="50px">
                    {!!$errors->first('image', '<span class="text-danger">:message</span>')!!}
 		        </div>
 		    </div>

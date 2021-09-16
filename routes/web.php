@@ -38,3 +38,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('products', ProductController::class);
     Route::resource('category', CategoryController::class);
 });
+Route::get('/ip',[CategoryController::class,'ipdemo']);
+Route::get('list', [ProductController::class, 'getProduct']);
+Route::get('delete/{id}', [ProductController::class, 'delete']);
+   
