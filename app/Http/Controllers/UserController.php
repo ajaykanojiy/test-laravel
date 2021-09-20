@@ -103,17 +103,31 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email|unique:users,email,'.$id,
-            'password' => 'same:confirm-password',
+            // 'password' => 'same:confirm-password',
             'roles' => 'required'
         ]);
-    
+
+    //   echo $request->approved_by_Admin;die;
         $input = $request->all();
-        if(!empty($input['password'])){ 
-            $input['password'] = Hash::make($input['password']);
-        }else{
-            $input = Arr::except($input,array('password'));    
+ 
+        if ( $request->file('image')) {
+          
+            $image= edit_image($request->image);          
+
+            $request->image->move(public_path('uploads'), $image);          
+           
+               $input['image']->image=$image;
         }
-    
+        else{
+            $input['image']=$request->edit_image;
+           }
+
+        // if(!empty($input['password'])){ 
+        //     $input['password'] = Hash::make($input['password']);
+        // }else{
+        //     $input = Arr::except($input,array('password'));    
+        // }
+        $input['approved_by_Admin']=$request->approved_by_Admin;
         $user = User::find($id);
         $user->update($input);
         DB::table('model_has_roles')->where('model_id',$id)->delete();

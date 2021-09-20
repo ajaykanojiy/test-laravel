@@ -31,7 +31,7 @@
 
          <div class="row">
 
-         <!-- <div class="col-xs-12 col-sm-12 col-md-12">
+         <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
 		            <strong>Category:</strong>
 		           
@@ -42,7 +42,7 @@
                         @endforeach
                     <select>
 		        </div>
-		    </div> -->
+		    </div>
 		    <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
 		            <strong>Name:</strong>
@@ -65,18 +65,31 @@
 
             <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
-		            <strong>Stock:</strong>
-		            <input type="text" name="stock" class="form-control" placeholder="Stock">
+		            <strong>Slug:</strong>
+		            <input type="text" name="slug" class="form-control" placeholder="slug">
 		        </div>
 		    </div>
 
+
+
             <div class="col-xs-12 col-sm-12 col-md-12">
+		        <div class="form-group">
+		            <strong>Slug:</strong>
+		           <select>
+                       <option value="1">Active</option>
+                       <option value="2">InActive</option>
+                   </select>
+                    
+		        </div>
+		    </div>
+
+            <!-- <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
 		            <strong>Image:</strong>
                     <input type="file" name="image" class="form-control">
                    {!!$errors->first('image', '<span class="text-danger">:message</span>')!!}
 		        </div>
-		    </div>
+		    </div> -->
 
 		    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
 		            <button type="submit" class="btn btn-primary">Submit</button>

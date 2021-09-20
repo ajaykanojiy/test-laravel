@@ -12,17 +12,17 @@ class Product extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        "image","name","description","price",
+       "name",'category_id',"description","price",'slug','status',
     ];
 
     public function getCreatedatAttribute( $value ) {
         return date('d-M-Y',strtotime($value));
      }
 
-    //  public function category()
-    // {
-    //     return $this->belongsTo(Category::class);
-    // }
+     public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 
 
     public function stock()

@@ -26,39 +26,18 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
-
-        // $this->events->fire(new SendMail('ajaykantkanojiya@gmail.com'));
        
-
-        $products = Product::with('stock')->latest()->paginate(5);
+        $products = Product::with('category')->latest()->paginate(5);
          
-        // p($products);die;
-        // return view('products.index',compact('products'))
-        //     ->with('i', (request()->input('page', 1) - 1) * 5);
-
-        return view('products.index',compact('products'));
-    }
-
-
-    public function getProduct(Request $request)
-    { 
         
-        if ($request->ajax()) {
-            
-            $data = Product::with('stock')->latest()->get();
+        return view('products.index',compact('products'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
 
-                     
-
-            return Datatables::of($data)
-                ->addIndexColumn()
-                ->addColumn('action', function($row){
-                    $actionBtn = '<a href="'.route('products.edit',$row->id).'" class="edit btn btn-success btn-sm">Edit</a> <a href="'.url('delete',$row->id).'" class="delete btn btn-danger btn-sm">Delete</a>';
-                    return $actionBtn;
-                })
-                ->rawColumns(['action'])
-                ->make(true);
-        }
+        
     }
+
+
+    
 
     /**
      * Show the form for creating a new resource.
@@ -81,36 +60,27 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required|unique:products',
-            'image' => 'required|image|mimes:png,jpg|max:2048',            
+            // 'image' => 'required|image|mimes:png,jpg|max:2048',            
         ]);
           
         // echo $request->stock;die;
-        $image= edit_image($request->image); 
+        // $image= edit_image($request->image); 
  
-        $request->image->move(public_path('uploads'), $image);
+        // $request->image->move(public_path('uploads'), $image);
 
         $id  =  Product::create([
-            "image" => $image,
+            // "image" => $image,
             "name" => $request->name,
-            // "category_id" => $request->category_id,
+            "category_id" => $request->category_id,
             "description" => $request->description,
             "price" => $request->price,
+            "slug" => $request->slug,
+            "status" => $request->status,
         ]);
-      
-        if($id){    
-        //    event(new SendMail('ajaykantkanojiya@gmail.com',$id));
-      $stock=  DB::table('stocks')->insert([
-            'product_id' =>$id->id,
-            'stock' =>$request->stock,
-        ]);
-
-        //    p($stock);die; 
-
-        if($stock){
-            return redirect()->route('products.index')
+                
+      return redirect()->route('products.index')
             ->with('success','Product created successfully.');
-        }
-              }
+        
        
     }
 

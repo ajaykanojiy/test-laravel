@@ -50,12 +50,6 @@ class CategoryController extends Controller
             'image' => 'required|image|mimes:png,jpg|max:2048',            
         ]);
 
-
-        // 'name' => 'required',
-        // 'username' => 'required|min:8',
-        // 'email' => 'required|email|unique:users',
-        // 'contact' => 'required|unique:users'
-       
           
         $image= edit_image($request->image); 
  
