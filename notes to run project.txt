@@ -1,0 +1,11 @@
+composer install
+php artisan key:genrate
+php artisan config:clear
+npm install
+
+then
+php artisan migrate:refresh --seed
+
+  admin is
+    ajaykantkanojiya@gmail.com
+    Password@123

@@ -102,7 +102,7 @@ class RegisternewController extends Controller
          
      
         if (Auth::attempt(['email'=>$request->email,'password'=>$request->password,'approved_by_Admin'=>4])) {
-            echo 'ajay';die;
+            // echo 'ajay';die;
             // return redirect()->intended('layouts.app')
             //             ->withSuccess('Signed in');
             return view('layouts.app');

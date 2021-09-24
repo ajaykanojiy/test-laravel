@@ -42,6 +42,7 @@ class LoginController extends Controller
 
     protected function credentials(Request $request){
         // echo 'ajay';die;
-        return ['email'=>$request->email,'password'=>$request->password,'approved_by_Admin'=>1];
+        // return ['email'=>$request->email,'password'=>$request->password,'approved_by_Admin'=>1];
+        return ['email'=>$request->email,'password'=>$request->password];
     }
 }

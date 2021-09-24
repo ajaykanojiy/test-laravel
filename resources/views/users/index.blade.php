@@ -36,7 +36,7 @@
  @foreach ($data as $key => $user)
   <tr>
     <td>{{ ++$i }}</td>
-    <td>{{ ($user->approved_by_Admin==1)?'yes':'no'; }}</td>
+    <!-- <td>{{ ($user->approved_by_Admin==1)?'yes':'no'; }}</td> -->
     <td>{{ $user->name }}</td>
     <td>{{ $user->name }}</td>
     <td>{{ $user->lname }}</td>

@@ -147,14 +147,14 @@ class CategoryController extends Controller
     }
 
 
-    public function ipdemo(){
-    //    echo 'demo';die;
-          $ip="157.34.114.36";
-           $ip2='1573411436';
-            // print_r (explode(" ",$ip2));
+    // public function ipdemo(){
+    // //    echo 'demo';die;
+    //       $ip="157.34.114.36";
+    //        $ip2='1573411436';
+    //         // print_r (explode(" ",$ip2));
 
-          print_r( explode('.',$ip));
+    //       print_r( explode('.',$ip));
 
-         return view('category.createnew');
-    }
+    //      return view('category.createnew');
+    // }
 }

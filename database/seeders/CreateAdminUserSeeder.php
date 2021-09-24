@@ -27,13 +27,16 @@ class CreateAdminUserSeeder extends Seeder
             
         ]);
         
-        $role = Role::create(['name' => 'super admin']);
-            //    Role::create(['name' => 'User Manger']);
+        $role = Role::create(['name' => 'Admin User']);
+               Role::create(['name' => 'Regular users']);
+        $permissions = Permission::pluck('id','id')->all();
         $permissions = Permission::pluck('id','id')->all();
    
         $role->syncPermissions($permissions);
      
         $user->assignRole([$role->id]);
+        // $role->syncPermissions(['9','10','11']);
+        // $user->assignRole([$role->id,2]);
 
         // $user = User::create([
         //     'name' => 'Ajju', 
